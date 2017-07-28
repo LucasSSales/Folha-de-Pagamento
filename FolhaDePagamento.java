@@ -6,7 +6,27 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class FolhaDePagamento {
+	
+	public static
+	void emitirFolhaDePagamento(Map<Integer, Empregado> empregados) {
+		
+		Calendar calendar = Calendar.getInstance();
+		
+		for (Integer key : empregados.keySet()) {
+			Empregado value = empregados.get(key); 
+			if(calendar.DAY_OF_WEEK == 7 && value.getTipo() == 1)
+				System.out.println(key + " " + value.getNome() + " " + "INSERIR SALARIO AKI");
+			//System.out.println("CHAVE: " + key + "\nEMPREGADO:\n" + value);
+		}
+		
+		
+	}
+	
+	
+	
+	
 	public static void main (String[] args) {
+				
 		
 		Scanner scanI = new Scanner(System.in);
 		Scanner scanC = new Scanner(System.in);
@@ -17,7 +37,7 @@ public class FolhaDePagamento {
 			
 		
 		do {
-			System.out.println("SELECIONE A OPERA«√O\n");
+			System.out.println("SELECIONE A OPERA√á√ÉO\n");
 			System.out.println("1- Adicionar empregado\n"
 					+ "2- Remover Empregado\n"
 					+ "3- Alterar Atributos\n"
@@ -56,11 +76,11 @@ public class FolhaDePagamento {
 			}else if(opcao == 4){
 				System.out.println("1-Ver agendas\n2-Criar nova agenda");
 			}else if (opcao == 5){
-				
+				emitirFolhaDePagamento(empregados);
 			}else if (opcao == 0)
 				break;
 			
-			System.out.println("DESEJA REALIZAR OUTRA OPERA«√O?\n1-Sim           0-N„o");
+			System.out.println("DESEJA REALIZAR OUTRA OPERA√á√ÉO?\n1-Sim           0-N√£o");
 			opcao = scanI.nextInt();
 			
 		}while(opcao!=0);
