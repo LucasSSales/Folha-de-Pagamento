@@ -18,6 +18,11 @@ public class Horista extends Empregado{
 		
 		setSalario((salarioPorHora*getHoras()) + (1.5 * getExtra()));
 	}
+	
+	public Horista() {
+		super();
+		setTipo(1);
+	}
 
 	public int getHoras() {
 		return horas;
@@ -33,6 +38,12 @@ public class Horista extends Empregado{
 
 	public void setExtra(int extra) {
 		this.extra = extra;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString() + "\nTIPO: Horista\n";
 	}
 	
 }
