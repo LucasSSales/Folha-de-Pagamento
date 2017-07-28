@@ -8,18 +8,15 @@ public class Empregado {
 	private String endereco = new String();
 	private int tipo;
 	private int atributo;
-	private int[] tipos = new int[3];
-	private int[] atributos = new int[3];
 	
 	private final double salarioPorMes = 2000;
 	private double salario;
-	
 
 	public Empregado () {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("NOME: ");
 		setNome(scan.nextLine());
-		System.out.println("ENDEREÇO: ");
+		System.out.println("ENDEREÃ‡O: ");
 		setEndereco(scan.nextLine());
 	}
 	
@@ -53,6 +50,22 @@ public class Empregado {
 	public void setSalario(double salario) {
 		this.salario = salario;
 	}
+
+	public int getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "NOME: " + this.nome + "\nENDERECO: " + this.endereco + "\n";
+	}
+	
+	
 	
 	
 }
