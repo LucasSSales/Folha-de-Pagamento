@@ -6,8 +6,8 @@ public class Empregado {
 	
 	private String nome = new String();
 	private String endereco = new String();
-	private int tipo;
-	private int atributo;
+	private String Agenda;
+	private boolean sindicato;
 	
 	private final double salarioPorMes = 2000;
 	private double salario;
@@ -16,16 +16,19 @@ public class Empregado {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("NOME: ");
 		setNome(scan.nextLine());
-		System.out.println("ENDEREÃ‡O: ");
+		System.out.println("ENDEREÇO: ");
 		setEndereco(scan.nextLine());
+		System.out.println("ASSOCIAR AO SINDICATO?\n1-SIM    0-NÃO");
+		if(scan.nextInt() == 1)
+			setSindicato(true);
+		else
+			setSindicato(false);
+			
 	}
 	
-/*	public void remove (Integer key, Map<Integer, Empregado> empregados) {
-	
-		empregados.remove(key);
+	public void salario() {
 		
-	}*/
-	
+	}
 	
 	public String getNome() {
 		return nome;
@@ -51,14 +54,28 @@ public class Empregado {
 		this.salario = salario;
 	}
 
-	public int getTipo() {
-		return tipo;
+	public String getAgenda() {
+		return Agenda;
 	}
 
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
+	public void setAgenda(String agenda) {
+		Agenda = agenda;
 	}
 	
+	public double getSalarioPorMes() {
+		return salarioPorMes;
+	}
+	
+	
+
+	public boolean isSindicato() {
+		return sindicato;
+	}
+
+	public void setSindicato(boolean sindicato) {
+		this.sindicato = sindicato;
+	}
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub

@@ -7,16 +7,17 @@ public class Comissionado extends Empregado {
 	
 	public void vendas () {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("NÃšMERO DE VENDAS: ");
+		System.out.println("NÚMERO DE VENDAS: ");
 		setVendas(scan.nextInt());
+		setSalario(getVendas() * (getComissao()/100));
 	}
 	
 	
 	public Comissionado() {
 		super();
-		setTipo(3);
+		setAgenda("Bi-semanalmente");
 		Scanner scan = new Scanner(System.in);
-		System.out.println("INSIRA A COMISSÃƒO: ");
+		System.out.println("INSIRA A COMISSÃO: ");
 		setComissao(scan.nextDouble());
 	}
 
@@ -40,7 +41,7 @@ public class Comissionado extends Empregado {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return super.toString() + "\nTIPO: Comisionado\nCOMISSÃƒO: " + this.comissao;
+		return super.toString() + "\nTIPO: Comisionado\nCOMISSÃO: " + this.comissao;
 	}
 
 }

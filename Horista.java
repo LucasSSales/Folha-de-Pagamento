@@ -21,7 +21,7 @@ public class Horista extends Empregado{
 	
 	public Horista() {
 		super();
-		setTipo(1);
+		setAgenda("Semanalmente");
 	}
 
 	public int getHoras() {
