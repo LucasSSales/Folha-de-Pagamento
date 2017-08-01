@@ -5,6 +5,16 @@ public class Comissionado extends Empregado {
 	private double comissao;
 	private int vendas;
 	
+	public Comissionado() {
+		super();
+		setSalario(getSalarioPorMes()/2);
+		setAgenda("Bi-semanalmente");
+		setTipoAgenda(3);
+		Scanner scan = new Scanner(System.in);
+		System.out.println("INSIRA A COMISSÃO: ");
+		setComissao(scan.nextDouble());
+	}
+	
 	public void vendas () {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("NÚMERO DE VENDAS: ");
@@ -12,16 +22,12 @@ public class Comissionado extends Empregado {
 		setSalario(getVendas() * (getComissao()/100));
 	}
 	
-	
-	public Comissionado() {
-		super();
-		setAgenda("Bi-semanalmente");
-		Scanner scan = new Scanner(System.in);
-		System.out.println("INSIRA A COMISSÃO: ");
-		setComissao(scan.nextDouble());
+	@Override
+	public void salario() {
+		super.salario();
+		setSalario(getSalario() * getComissao());
 	}
-
-
+	
 	public double getComissao() {
 		return comissao;
 	}
@@ -41,7 +47,7 @@ public class Comissionado extends Empregado {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return super.toString() + "\nTIPO: Comisionado\nCOMISSÃO: " + this.comissao;
+		return super.toString() + "TIPO: Comisionado\nCOMISSÃO: " + this.comissao + "\nAGENDA: " + getAgenda() + "\n";
 	}
 
 }

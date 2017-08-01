@@ -8,26 +8,37 @@ public class Empregado {
 	private String endereco = new String();
 	private String Agenda;
 	private boolean sindicato;
+	private int tipoAgenda;
+	private double taxaServico;
+	private String servicos;
+	private double taxaSindical;
 	
 	private final double salarioPorMes = 2000;
 	private double salario;
 
 	public Empregado () {
+		setTaxaServico(1);
 		Scanner scan = new Scanner(System.in);
 		System.out.println("NOME: ");
 		setNome(scan.nextLine());
 		System.out.println("ENDEREÇO: ");
 		setEndereco(scan.nextLine());
 		System.out.println("ASSOCIAR AO SINDICATO?\n1-SIM    0-NÃO");
-		if(scan.nextInt() == 1)
+		if(scan.nextInt() == 1) {
 			setSindicato(true);
+			System.out.println("DIGITE A TAXA DO SINDICATO");
+			setTaxaSindical(scan.nextDouble());
+		}
 		else
 			setSindicato(false);
 			
 	}
 	
 	public void salario() {
-		
+		double s = getSalario();
+		if(isSindicato() == true)
+			s *= getTaxaSindical();
+		setSalario(s * getTaxaServico());
 	}
 	
 	public String getNome() {
@@ -66,14 +77,44 @@ public class Empregado {
 		return salarioPorMes;
 	}
 	
-	
-
 	public boolean isSindicato() {
 		return sindicato;
 	}
 
 	public void setSindicato(boolean sindicato) {
 		this.sindicato = sindicato;
+	}
+	
+	public int getTipoAgenda() {
+		return tipoAgenda;
+	}
+
+	public void setTipoAgenda(int tipoAgenda) {
+		this.tipoAgenda = tipoAgenda;
+	}
+
+	public double getTaxaServico() {
+		return taxaServico;
+	}
+
+	public void setTaxaServico(int taxaServico) {
+		this.taxaServico = taxaServico;
+	}
+
+	public String getServicos() {
+		return servicos;
+	}
+
+	public void setServicos(String servicos) {
+		this.servicos = servicos;
+	}
+
+	public double getTaxaSindical() {
+		return taxaSindical;
+	}
+
+	public void setTaxaSindical(double taxaSindical) {
+		this.taxaSindical = taxaSindical;
 	}
 
 	@Override

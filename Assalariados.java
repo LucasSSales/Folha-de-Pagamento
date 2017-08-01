@@ -5,17 +5,13 @@ public class Assalariados extends Empregado {
 	public Assalariados() {
 		super();
 		setAgenda("Mensalmente");
+		setTipoAgenda(2);
+		setSalario(getSalarioPorMes());
 	}
 	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return super.toString() + "TIPO: Assalariado\n";
-	}
-	
-	@Override
-	public void salario() {
-		super.salario();
-		System.out.println(getSalario());
+		return super.toString() + "TIPO: Assalariado\nAGENDA: " + getAgenda() + "\n";
 	}
 }

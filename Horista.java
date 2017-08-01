@@ -6,6 +6,12 @@ public class Horista extends Empregado{
 	private int extra;
 	private final double salarioPorHora = 10;
 	
+	public Horista() {
+		super();
+		setAgenda("Semanalmente");
+		setTipoAgenda(1);
+	}
+	
 	public void cartaoDePonto() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("NUMERO DE HORAS TRABALHADAS: ");
@@ -18,12 +24,7 @@ public class Horista extends Empregado{
 		
 		setSalario((salarioPorHora*getHoras()) + (1.5 * getExtra()));
 	}
-	
-	public Horista() {
-		super();
-		setAgenda("Semanalmente");
-	}
-
+		
 	public int getHoras() {
 		return horas;
 	}
@@ -43,7 +44,7 @@ public class Horista extends Empregado{
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return super.toString() + "\nTIPO: Horista\n";
+		return super.toString() + "TIPO: Horista\nAGENDA: " + getAgenda() + "\n";
 	}
 	
 }
