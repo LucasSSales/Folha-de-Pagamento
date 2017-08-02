@@ -17,7 +17,7 @@ public class Empregado {
 	private double salario;
 
 	public Empregado () {
-		setTaxaServico(1);
+		setTaxaServico(0);
 		Scanner scan = new Scanner(System.in);
 		System.out.println("NOME: ");
 		setNome(scan.nextLine());
@@ -31,14 +31,16 @@ public class Empregado {
 		}
 		else
 			setSindicato(false);
-			
 	}
 	
 	public void salario() {
 		double s = getSalario();
-		if(isSindicato() == true)
-			s *= getTaxaSindical();
-		setSalario(s * getTaxaServico());
+		if(isSindicato() == true) {
+			double taxa = s * (getTaxaSindical()/100);
+			setSalario(s-taxa);
+		}
+		double servico = s * (getTaxaServico()/100);
+		setSalario(s-servico);
 	}
 	
 	public String getNome() {

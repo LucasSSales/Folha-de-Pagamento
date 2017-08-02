@@ -19,13 +19,14 @@ public class Comissionado extends Empregado {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("NÚMERO DE VENDAS: ");
 		setVendas(scan.nextInt());
-		setSalario(getVendas() * (getComissao()/100));
+		setSalario(getSalario() + (getVendas() * (getComissao()/100)));
 	}
 	
 	@Override
 	public void salario() {
 		super.salario();
-		setSalario(getSalario() * getComissao());
+		double comissao = getSalario() * (getComissao()/100);
+		setSalario(getSalario() - comissao);
 	}
 	
 	public double getComissao() {
