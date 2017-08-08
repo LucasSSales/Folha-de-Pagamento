@@ -7,6 +7,7 @@ public class Comissionado extends Empregado {
 	
 	public Comissionado(int cod) {
 		super(cod);
+		setCodigo("C" + cod);
 		setSalario(getSalarioPorMes()/2);
 		setAgenda("Bi-semanalmente");
 		setTipoAgenda(3);

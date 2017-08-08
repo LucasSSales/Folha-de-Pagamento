@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Empregado {
 	
 	private String nome = new String();
-	private int codigo;
+	private String codigo;
 	private String endereco = new String();
 	private String Agenda;
 	private boolean sindicato;
@@ -20,7 +20,6 @@ public class Empregado {
 	public Empregado (int cod) {
 		setTaxaServico(0);
 		Scanner scan = new Scanner(System.in);
-		setCodigo(cod);
 		System.out.println("NOME: ");
 		setNome(scan.nextLine());
 		System.out.println("ENDEREÇO: ");
@@ -53,11 +52,11 @@ public class Empregado {
 		this.nome = nome;
 	}
 	
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
@@ -138,7 +137,7 @@ public class Empregado {
 		}else {
 			sind = "SEM ASSOCIAÇÃO COM O SINDICATO";
 		}
-		return "NOME: " + this.nome + "\nCODIGO: " +  + this.codigo + "\nENDERECO: " + this.endereco + "\n" + sind + "\n";
+		return "NOME: " + this.nome + "\nCODIGO: " +  this.codigo + "\nENDERECO: " + this.endereco + "\n" + sind + "\n";
 	}
 	
 	

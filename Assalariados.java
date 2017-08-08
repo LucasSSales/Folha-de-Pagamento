@@ -4,6 +4,7 @@ public class Assalariados extends Empregado {
 	
 	public Assalariados(int cod) {
 		super(cod);
+		setCodigo("A" + cod);
 		setAgenda("Mensalmente");
 		setTipoAgenda(2);
 		setSalario(getSalarioPorMes());

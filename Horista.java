@@ -8,6 +8,7 @@ public class Horista extends Empregado{
 	
 	public Horista(int cod) {
 		super(cod);
+		setCodigo("H" + cod);
 		setAgenda("Semanalmente");
 		setTipoAgenda(1);
 		setSalario(0);
