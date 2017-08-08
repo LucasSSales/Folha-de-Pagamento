@@ -1,3 +1,4 @@
+/*
 package folhaDePagamento;
 
 import java.awt.List;
@@ -82,19 +83,19 @@ public static void remover() {
 	String cod = scanC.nextLine();
 	if(cod.startsWith("H", 0)) {
 		if(horistas.remove(cod) == null) {
-			System.out.println("EMPREGADO NÃO CADASTRADO");
+			System.out.println("EMPREGADO NÃƒO CADASTRADO");
 		}else {
 			System.out.println("REMOVIDO COM SUCESSO!");
 		}
 	}else if(cod.startsWith("A", 0)) {
 		if(assalariados.remove(cod) == null) {
-			System.out.println("EMPREGADO NÃO CADASTRADO");
+			System.out.println("EMPREGADO NÃƒO CADASTRADO");
 		}else {
 			System.out.println("REMOVIDO COM SUCESSO!");
 		}
 	}else if(cod.startsWith("C", 0)) {
 		if(comissionados.remove(cod) == null) {
-			System.out.println("EMPREGADO NÃO CADASTRADO");
+			System.out.println("EMPREGADO NÃƒO CADASTRADO");
 		}else {
 			System.out.println("REMOVIDO COM SUCESSO!");
 		}
@@ -112,17 +113,17 @@ public static void alterarAtributos () {
 	
 	if(cod.startsWith("H", 0)) {
 		if(horistas.get(cod)==null) {
-			System.out.println("EMPREGADO NÃO CADASTRADO");
+			System.out.println("EMPREGADO NÃƒO CADASTRADO");
 		}else {
 			Horista h = horistas.get(cod);
 			System.out.println("O QUE DESEJA ALTERAR?\n"
-					+ "1-Nome\n2-Endereço\n3-Tipo\nAssociação Sindical");
+					+ "1-Nome\n2-EndereÃ§o\n3-Tipo\nAssociaÃ§Ã£o Sindical");
 			opcao = scan.nextInt();
 			if(opcao == 1) {
 				System.out.println("DIGITE O NOVO NOME: ");
 				h.setNome(scanC.nextLine());//
 			}else if (opcao == 2) {
-				System.out.println("DIGITE O NOVO ENDEREÇO: ");
+				System.out.println("DIGITE O NOVO ENDEREÃ‡O: ");
 				h.setEndereco(scanC.nextLine());//
 			}else if (opcao == 3) {
 				System.out.println("ASSOCIAR(1) OU DESASSOCIAR(0)?");
@@ -135,17 +136,17 @@ public static void alterarAtributos () {
 		}
 	}else if(cod.startsWith("A", 0)) {
 		if(assalariados.get(cod)==null) {
-			System.out.println("EMPREGADO NÃO CADASTRADO");
+			System.out.println("EMPREGADO NÃƒO CADASTRADO");
 		}else {
 			Assalariados a = assalariados.get(cod);
 			System.out.println("O QUE DESEJA ALTERAR?\n"
-					+ "1-Nome\n2-Endereço\n3-Tipo\nAssociação Sindical");
+					+ "1-Nome\n2-EndereÃ§o\n3-Tipo\nAssociaÃ§Ã£o Sindical");
 			opcao = scan.nextInt();
 			if(opcao == 1) {
 				System.out.println("DIGITE O NOVO NOME: ");
 				a.setNome(scanC.nextLine());//
 			}else if (opcao == 2) {
-				System.out.println("DIGITE O NOVO ENDEREÇO: ");
+				System.out.println("DIGITE O NOVO ENDEREÃ‡O: ");
 				a.setEndereco(scanC.nextLine());//
 			}else if (opcao == 3) {
 				System.out.println("ASSOCIAR(1) OU DESASSOCIAR(0)?");
@@ -158,17 +159,17 @@ public static void alterarAtributos () {
 		}
 	}else if(cod.startsWith("C", 0)) {
 		if(comissionados.get(cod)==null) {
-			System.out.println("EMPREGADO NÃO CADASTRADO");
+			System.out.println("EMPREGADO NÃƒO CADASTRADO");
 		}else{
 			Comissionado c = comissionados.get(cod);
 			System.out.println("O QUE DESEJA ALTERAR?\n"
-					+ "1-Nome\n2-Endereço\n3-Tipo\nAssociação Sindical");
+					+ "1-Nome\n2-EndereÃ§o\n3-Tipo\nAssociaÃ§Ã£o Sindical");
 			opcao = scan.nextInt();
 			if(opcao == 1) {
 				System.out.println("DIGITE O NOVO NOME: ");
 				c.setNome(scanC.nextLine());//
 			}else if (opcao == 2) {
-				System.out.println("DIGITE O NOVO ENDEREÇO: ");
+				System.out.println("DIGITE O NOVO ENDEREÃ‡O: ");
 				c.setEndereco(scanC.nextLine());//
 			}else if (opcao == 3) {
 				System.out.println("ASSOCIAR(1) OU DESASSOCIAR(0)?");
@@ -192,7 +193,7 @@ public static void agenda() {
 		if(h.isSindicato()==true) {
 			System.out.println("ASSOCIADO AO SINDICATO - TAXA -> " + h.getTaxaSindical());
 		}else {
-			System.out.println("SEM ASSOCIAÇÃO COM O SINDICATO");
+			System.out.println("SEM ASSOCIAÃ‡ÃƒO COM O SINDICATO");
 		}
 	}
 	System.out.println("\nASSALARIADOS:");
@@ -202,7 +203,7 @@ public static void agenda() {
 		if(a.isSindicato()==true) {
 			System.out.println("ASSOCIADO AO SINDICATO - TAXA -> " + a.getTaxaSindical());
 		}else {
-			System.out.println("SEM ASSOCIAÇÃO COM O SINDICATO");
+			System.out.println("SEM ASSOCIAÃ‡ÃƒO COM O SINDICATO");
 		}
 	}
 	System.out.println("\nCOMISSIONADOS:");
@@ -212,14 +213,14 @@ public static void agenda() {
 		if(c.isSindicato()==true) {
 			System.out.println("ASSOCIADO AO SINDICATO - TAXA -> " + c.getTaxaSindical());
 		}else {
-			System.out.println("SEM ASSOCIAÇÃO COM O SINDICATO");
+			System.out.println("SEM ASSOCIAÃ‡ÃƒO COM O SINDICATO");
 		}
 	}
 }
 
 public static int opcoesAgenda() {
 	
-	System.out.println("SELECIONE AS OPÇÕES:\n"
+	System.out.println("SELECIONE AS OPÃ‡Ã•ES:\n"
 			+ "1- Mensal 1\n"
 			+ "2- Mensal 7\n"
 			+ "3- Mensal $\n"
@@ -236,12 +237,12 @@ public static void criarAgenda () {
 	
 	String[] novaAgenda = new String[6];
 	
-	novaAgenda[0] = "Dia 1 de todo mês";
-	novaAgenda[1] = "Dia 7 de todo mês";
-	novaAgenda[2] = "Último dia útil de todo mês";
-	novaAgenda[3] = "Toda semana às segundas-feiras";
-	novaAgenda[4] = "Toda semana às sextas-feiras";
-	novaAgenda[5] = "A cada 2 semanas às segundas-feiras" ;
+	novaAgenda[0] = "Dia 1 de todo mÃªs";
+	novaAgenda[1] = "Dia 7 de todo mÃªs";
+	novaAgenda[2] = "Ãšltimo dia Ãºtil de todo mÃªs";
+	novaAgenda[3] = "Toda semana Ã s segundas-feiras";
+	novaAgenda[4] = "Toda semana Ã s sextas-feiras";
+	novaAgenda[5] = "A cada 2 semanas Ã s segundas-feiras" ;
 	
 	Scanner scan = new Scanner(System.in);
 	System.out.println("INSIRA O CODIGO DO EMPREGADO");
@@ -250,7 +251,7 @@ public static void criarAgenda () {
 	
 	if(cod.startsWith("H", 0)) {
 		if(horistas.get(cod)==null) {
-			System.out.println("EMPREGADO NÃO CADASTRADO");
+			System.out.println("EMPREGADO NÃƒO CADASTRADO");
 		}else {
 			Horista h = horistas.get(cod);
 			op = opcoesAgenda();
@@ -259,7 +260,7 @@ public static void criarAgenda () {
 		}
 	}else if(cod.startsWith("A", 0)) {
 		if(assalariados.get(cod)==null) {
-			System.out.println("EMPREGADO NÃO CADASTRADO");
+			System.out.println("EMPREGADO NÃƒO CADASTRADO");
 		}else {
 			Assalariados a = assalariados.get(cod);
 			op = opcoesAgenda();
@@ -268,7 +269,7 @@ public static void criarAgenda () {
 		}
 	}else if(cod.startsWith("C", 0)) {
 		if(comissionados.get(cod)==null) {
-			System.out.println("EMPREGADO NÃO CADASTRADO");
+			System.out.println("EMPREGADO NÃƒO CADASTRADO");
 		}else{
 			Comissionado c = comissionados.get(cod);
 			op = opcoesAgenda();
@@ -281,10 +282,10 @@ public static void criarAgenda () {
 }
 	
 public static void outrasOps() {
-	System.out.println("MAIS OPERAÇÕES\n"
-			+ "1- Lançar Cartão de ponto\n"
-			+ "2- Lançar relatorio de venda\n"
-			+ "3- Lançar taxa de serviço");
+	System.out.println("MAIS OPERAÃ‡Ã•ES\n"
+			+ "1- LanÃ§ar CartÃ£o de ponto\n"
+			+ "2- LanÃ§ar relatorio de venda\n"
+			+ "3- LanÃ§ar taxa de serviÃ§o");
 	Scanner scan = new Scanner(System.in);
 	Scanner scanC = new Scanner(System.in);
 	int opcao = scan.nextInt();
@@ -304,30 +305,30 @@ public static void outrasOps() {
 		
 		if(cod.startsWith("H", 0)) {
 			if(horistas.get(cod)==null) {
-				System.out.println("EMPREGADO NÃO CADASTRADO");
+				System.out.println("EMPREGADO NÃƒO CADASTRADO");
 			}else {
 				Horista h = horistas.get(cod);
-				System.out.println("DIGITE O SERVIÇO: ");
+				System.out.println("DIGITE O SERVIÃ‡O: ");
 				h.setServicos(scanC.nextLine());
 				System.out.println("INSIRA A TAXA: ");
 				h.setTaxaServico(scan.nextInt());
 			}
 		}else if(cod.startsWith("A", 0)) {
 			if(assalariados.get(cod)==null) {
-				System.out.println("EMPREGADO NÃO CADASTRADO");
+				System.out.println("EMPREGADO NÃƒO CADASTRADO");
 			}else {
 				Assalariados a = assalariados.get(cod);
-				System.out.println("DIGITE O SERVIÇO: ");
+				System.out.println("DIGITE O SERVIÃ‡O: ");
 				a.setServicos(scanC.nextLine());
 				System.out.println("INSIRA A TAXA: ");
 				a.setTaxaServico(scan.nextInt());
 			}
 		}else if(cod.startsWith("C", 0)) {
 			if(comissionados.get(cod)==null) {
-				System.out.println("EMPREGADO NÃO CADASTRADO");
+				System.out.println("EMPREGADO NÃƒO CADASTRADO");
 			}else{
 				Comissionado c = comissionados.get(cod);
-				System.out.println("DIGITE O SERVIÇO: ");
+				System.out.println("DIGITE O SERVIÃ‡O: ");
 				c.setServicos(scanC.nextLine());
 				System.out.println("INSIRA A TAXA: ");
 				c.setTaxaServico(scan.nextInt());
@@ -349,7 +350,7 @@ public static void main (String[] args) {
 		int codigo = 0;		
 		
 		do {
-			System.out.println("SELECIONE A OPERAÇÃO\n");
+			System.out.println("SELECIONE A OPERAÃ‡ÃƒO\n");
 			System.out.println("1- Adicionar empregado\n"
 					+ "2- Remover Empregado\n"
 					+ "3- Alterar Atributos\n"
@@ -392,10 +393,11 @@ public static void main (String[] args) {
 			}else if (opcao == 0)
 				break;
 			
-			System.out.println("DESEJA REALIZAR OUTRA OPERAÇÃO?\n1-Sim           0-Não");
+			System.out.println("DESEJA REALIZAR OUTRA OPERAÃ‡ÃƒO?\n1-Sim           0-NÃ£o");
 			opcao = scanI.nextInt();
 			
 		}while(opcao!=0);
 		System.out.println("PROCESSO ENCERRADO");
 	}
 }
+*/
