@@ -2,8 +2,8 @@ package folhaDePagamento;
 
 public class Assalariados extends Empregado {
 	
-	public Assalariados() {
-		super();
+	public Assalariados(int cod) {
+		super(cod);
 		setAgenda("Mensalmente");
 		setTipoAgenda(2);
 		setSalario(getSalarioPorMes());

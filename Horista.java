@@ -6,10 +6,11 @@ public class Horista extends Empregado{
 	private int extra;
 	private final double salarioPorHora = 10;
 	
-	public Horista() {
-		super();
+	public Horista(int cod) {
+		super(cod);
 		setAgenda("Semanalmente");
 		setTipoAgenda(1);
+		setSalario(0);
 	}
 	
 	public void cartaoDePonto() {

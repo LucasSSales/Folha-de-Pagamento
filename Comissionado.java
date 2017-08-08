@@ -5,8 +5,8 @@ public class Comissionado extends Empregado {
 	private double comissao;
 	private int vendas;
 	
-	public Comissionado() {
-		super();
+	public Comissionado(int cod) {
+		super(cod);
 		setSalario(getSalarioPorMes()/2);
 		setAgenda("Bi-semanalmente");
 		setTipoAgenda(3);
@@ -19,14 +19,9 @@ public class Comissionado extends Empregado {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("NÚMERO DE VENDAS: ");
 		setVendas(scan.nextInt());
-		setSalario(getSalario() + (getVendas() * (getComissao()/100)));
-	}
-	
-	@Override
-	public void salario() {
-		super.salario();
-		double comissao = getSalario() * (getComissao()/100);
-		setSalario(getSalario() - comissao);
+		//setSalario(getSalario() + (getVendas() * (getComissao()/100)));
+		double comissao = getVendas() * (getComissao()/100);
+		setSalario(getSalario() + comissao);
 	}
 	
 	public double getComissao() {

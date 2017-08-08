@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Empregado {
 	
 	private String nome = new String();
+	private int codigo;
 	private String endereco = new String();
 	private String Agenda;
 	private boolean sindicato;
@@ -16,9 +17,10 @@ public class Empregado {
 	private final double salarioPorMes = 2000;
 	private double salario;
 
-	public Empregado () {
+	public Empregado (int cod) {
 		setTaxaServico(0);
 		Scanner scan = new Scanner(System.in);
+		setCodigo(cod);
 		System.out.println("NOME: ");
 		setNome(scan.nextLine());
 		System.out.println("ENDEREÇO: ");
@@ -42,13 +44,21 @@ public class Empregado {
 		double servico = s * (getTaxaServico()/100);
 		setSalario(s-servico);
 	}
-	
+		
 	public String getNome() {
 		return nome;
 	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getEndereco() {
@@ -122,7 +132,13 @@ public class Empregado {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "NOME: " + this.nome + "\nENDERECO: " + this.endereco + "\n";
+		String sind;
+		if(isSindicato()==true) {
+			sind = "ASSOCIADO AO SINDICATO - TAXA -> " + getTaxaSindical();
+		}else {
+			sind = "SEM ASSOCIAÇÃO COM O SINDICATO";
+		}
+		return "NOME: " + this.nome + "\nCODIGO: " +  + this.codigo + "\nENDERECO: " + this.endereco + "\n" + sind + "\n";
 	}
 	
 	
