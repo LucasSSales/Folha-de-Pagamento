@@ -1,5 +1,6 @@
 package folhaDePagamento;
 
+import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -58,96 +59,103 @@ public class Main {
 		
 		Scanner scanI = new Scanner(System.in);
 		Scanner scanC = new Scanner(System.in);
+		
 		int opcao;
 		int codigo = 0;		
 			
 			do {
-				System.out.println("SELECIONE A OPERAÇÃO\n");
-				System.out.println("1- Adicionar empregado\n"
-						+ "2- Remover Empregado\n"
-						+ "3- Alterar Atributos\n"
-						+ "4- Agenda\n"
-						+ "5- Folha de Pagamento\n"
-						+ "6- Outras\n"
-						+ "0- Sair");
-				
-				opcao = scanI.nextInt();
-				
-				if(opcao == 1) {
-					System.out.println("SELECIONE O TIPO\n"
-							+ "1- Horista\n"
-							+ "2- Assalariado\n"
-							+ "3- Comissionado");
+				try {
+					
+					System.out.println("SELECIONE A OPERAÇÃO\n");
+					System.out.println("1- Adicionar empregado\n"
+							+ "2- Remover Empregado\n"
+							+ "3- Alterar Atributos\n"
+							+ "4- Agenda\n"
+							+ "5- Folha de Pagamento\n"
+							+ "6- Outras\n"
+							+ "0- Sair");
 					
 					opcao = scanI.nextInt();
+					
 					if(opcao == 1) {
-						h.adicionar(new Horista(++codigo));
-					}else if (opcao == 2) {
-						a.adicionar(new Assalariados(++codigo));
-					}else if(opcao == 3) {
-						c.adicionar(new Comissionado(++codigo));
-					}
-				}else if(opcao == 2) {
-					System.out.println("INSIRA O CODIGO:");
-					String cod = scanC.nextLine();
-					if(cod.startsWith("H", 0)) {
-						h.remover(cod);
-					}else if(cod.startsWith("A", 0)) {
-						a.remover(cod);
-					}else if(cod.startsWith("C", 0)) {
-						c.remover(cod);
-					}else {
-						System.out.println("CODIGO INVALIDO!");
-					}					
-				}else if(opcao == 3) {
-					System.out.println("INSIRA O CODIGO DE EMPREGADO");
-					String cod = scanC.nextLine();
-					if(cod.startsWith("H", 0)) {
-						h.alterarAtributos(cod);
-					}else if(cod.startsWith("A", 0)) {
-						a.alterarAtributos(cod);
-					}else if(cod.startsWith("C", 0)) {
-						c.alterarAtributos(cod);
-					}else {
-						System.out.println("CODIGO INVALIDO!");
-					}			
-				}else if(opcao == 4){
-					System.out.println("1-Ver agendas\n2-Criar nova agenda");
-					opcao = scanI.nextInt();
-					if(opcao == 1) {
-						System.out.println("HORISTAS:");
-						h.agenda();
-						System.out.println("ASSALARIADOS:");
-						a.agenda();
-						System.out.println("COMISSIONADOS:");
-						c.agenda();
-					}
-					else if(opcao == 2) {
-						System.out.println("INSIRA O CODIGO DO EMPREGADO");
+						System.out.println("SELECIONE O TIPO\n"
+								+ "1- Horista\n"
+								+ "2- Assalariado\n"
+								+ "3- Comissionado");
+						
+						opcao = scanI.nextInt();
+						if(opcao == 1) {
+							h.adicionar(new Horista(++codigo));
+						}else if (opcao == 2) {
+							a.adicionar(new Assalariados(++codigo));
+						}else if(opcao == 3) {
+							c.adicionar(new Comissionado(++codigo));
+						}
+					}else if(opcao == 2) {
+						System.out.println("INSIRA O CODIGO:");
 						String cod = scanC.nextLine();
 						if(cod.startsWith("H", 0)) {
-							h.criarAgenda(cod);
+							h.remover(cod);
 						}else if(cod.startsWith("A", 0)) {
-							a.criarAgenda(cod);
+							a.remover(cod);
 						}else if(cod.startsWith("C", 0)) {
-							c.criarAgenda(cod);
+							c.remover(cod);
 						}else {
 							System.out.println("CODIGO INVALIDO!");
+						}					
+					}else if(opcao == 3) {
+						System.out.println("INSIRA O CODIGO DE EMPREGADO");
+						String cod = scanC.nextLine();
+						if(cod.startsWith("H", 0)) {
+							h.alterarAtributos(cod);
+						}else if(cod.startsWith("A", 0)) {
+							a.alterarAtributos(cod);
+						}else if(cod.startsWith("C", 0)) {
+							c.alterarAtributos(cod);
+						}else {
+							System.out.println("CODIGO INVALIDO!");
+						}			
+					}else if(opcao == 4){
+						System.out.println("1-Ver agendas\n2-Criar nova agenda");
+						opcao = scanI.nextInt();
+						if(opcao == 1) {
+							System.out.println("HORISTAS:");
+							h.agenda();
+							System.out.println("ASSALARIADOS:");
+							a.agenda();
+							System.out.println("COMISSIONADOS:");
+							c.agenda();
 						}
-					}
-				}else if (opcao == 5){
-					System.out.println("PAGAMENTOS PARA HOJE:");
-					h.emitirFolhaDePagamento();
-					a.emitirFolhaDePagamento();
-					c.emitirFolhaDePagamento();
-				}else if(opcao == 6){
-					outrasOps(h, a, c);
-				}else if (opcao == 0)
-					break;
-				
-				System.out.println("DESEJA REALIZAR OUTRA OPERAÇÃO?\n1-Sim           0-Não");
-				opcao = scanI.nextInt();
-				
+						else if(opcao == 2) {
+							System.out.println("INSIRA O CODIGO DO EMPREGADO");
+							String cod = scanC.nextLine();
+							if(cod.startsWith("H", 0)) {
+								h.criarAgenda(cod);
+							}else if(cod.startsWith("A", 0)) {
+								a.criarAgenda(cod);
+							}else if(cod.startsWith("C", 0)) {
+								c.criarAgenda(cod);
+							}else {
+								System.out.println("CODIGO INVALIDO!");
+							}
+						}
+					}else if (opcao == 5){
+						System.out.println("PAGAMENTOS PARA HOJE:");
+						h.emitirFolhaDePagamento();
+						a.emitirFolhaDePagamento();
+						c.emitirFolhaDePagamento();
+					}else if(opcao == 6){
+						outrasOps(h, a, c);
+					}else if (opcao == 0)
+						break;
+								
+				}catch( InputMismatchException e) {
+					System.out.println("ENTRADA INVALIDA");
+					
+				}finally {
+					System.out.println("DESEJA REALIZAR OUTRA OPERAÇÃO?\n1-Sim           0-Não");
+					opcao = scanI.nextInt();
+				}
 			}while(opcao!=0);
 			System.out.println("PROCESSO ENCERRADO");
 		}
